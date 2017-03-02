@@ -9,7 +9,7 @@ import java.awt.{Graphics2D, Color}
  */
 object Driver {
 
-  override def main(args: Array[String]): Unit = { // FIXME: overriding the main method is deprecated
+  def main(args: Array[String]): Unit = { // FIXME: overriding the main method is deprecated
      
     if (args.length != 2){
       throw new IllegalArgumentException("Must only contain two arguments.")

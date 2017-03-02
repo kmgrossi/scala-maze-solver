@@ -50,6 +50,18 @@ class Maze (bufferedImage: BufferedImage) {
     }
   }
 
+  def getAdjacentMazeNodes(node: MazeNode): Array[MazeNode] = {
+    var row = node.rowPos
+    var col = node.colPos
+    var adj = new Array[MazeNode](4)
+
+    adj(0) = mazeArray(row)(col+1) //up
+    adj(1) = mazeArray(row-1)(col) //left
+    adj(2) = mazeArray(row+1)(col) //right
+    adj(3) = mazeArray(row)(col-1) //down
+    adj // Returned without need for return keyword
+  }
+
   // Prints out maze representation as NodeStates
   def printMaze: Unit = {
     for (i <- 0 until mazeHeight) {
