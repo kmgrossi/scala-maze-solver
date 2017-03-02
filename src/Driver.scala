@@ -7,7 +7,7 @@ import javax.imageio.ImageIO
 * other classes.
 *
 * */
-object driver extends App{
+object Driver extends App{
 
   override def main(args: Array[String]): Unit = {
     if (args.length != 2){
