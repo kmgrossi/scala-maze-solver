@@ -3,8 +3,9 @@ import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
 
 /** Class for Node representation of maze images
- * (class description goes here)
- * @constructor
+ * Constructs a data structure of MazePixels into a 2D array of MazePixels
+ * representing the final, traversable Maze.
+ * @constructor create a maze given a bufferedImage representation of an unsolved maze image
  * @param bufferedImage
  */
 class Maze (bufferedImage: BufferedImage) {
@@ -37,10 +38,10 @@ class Maze (bufferedImage: BufferedImage) {
       else if (bufferedImage.getRGB(i, j) == white) {   // If pixel is a path
         mazeArray(i)(j).nodeState = NodeState.OPEN
       }
-      else if (bufferedImage.getRGB(i, j) == blue) {    // If pixel is the end
+      else if (bufferedImage.getRGB(i, j) == blue) {    // If pixel is the start
         mazeArray(i)(j).nodeState = NodeState.VISITED
       }
-      else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the start
+      else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the end
         mazeArray(i)(j).nodeState = NodeState.VISITED
       }
       else {
@@ -50,11 +51,13 @@ class Maze (bufferedImage: BufferedImage) {
   }
 
   // Prints out maze representation as NodeStates
-  for (i <- 0 until mazeHeight) {
-    for (j <- 0 until mazeWidth) {
-      print(mazeArray(j)(i))
-    }
-    println()
-  }
+  def printMaze: Unit = {
+    for (i <- 0 until mazeHeight) {
+      for (j <- 0 until mazeWidth) {
+        print(mazeArray(j)(i))
+      }
+      println()
+    }    
+  } 
 
 } // end class Maze
