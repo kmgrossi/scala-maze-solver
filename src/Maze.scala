@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage
  * @constructor create a maze given a bufferedImage representation of an unsolved maze image
  * @param bufferedImage
  */
-class Maze (bufferedImage: BufferedImage) {
+class Maze(bufferedImage: BufferedImage) {
 
   val mazeHeight = bufferedImage.getHeight
   val mazeWidth = bufferedImage.getWidth
@@ -55,10 +55,14 @@ class Maze (bufferedImage: BufferedImage) {
     var col = node.colPos
     var adj = new Array[MazeNode](4)
 
-    adj(0) = mazeArray(row)(col+1) //up
-    adj(1) = mazeArray(row-1)(col) //left
-    adj(2) = mazeArray(row+1)(col) //right
-    adj(3) = mazeArray(row)(col-1) //down
+    if (mazeArray(row)(col+1) != null) adj(0) = mazeArray(row)(col+1) //up
+    if (mazeArray(row-1)(col) != null) adj(1) = mazeArray(row-1)(col) //left
+    if (mazeArray(row+1)(col) != null) adj(2) = mazeArray(row+1)(col) //right
+    if (mazeArray(row)(col-1) != null) adj(3) = mazeArray(row)(col-1) //down
+
+    for (n <- adj)
+      print(n)
+
     adj // Returned without need for return keyword
   }
 
@@ -70,6 +74,6 @@ class Maze (bufferedImage: BufferedImage) {
       }
       println()
     }    
-  } 
+  }
 
 } // end class Maze

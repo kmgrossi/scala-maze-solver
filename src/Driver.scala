@@ -24,11 +24,24 @@ object Driver {
 
     // Constant variable object of class Maze
     val maze = new Maze(originalMaze) 
-    maze.printMaze
+    //maze.printMaze
 
     // Following code tests that the picture's dimensions is being read accurately
     //printf("Photo size is %d x %d\n", photo1.getWidth, photo1.getHeight)
 
+
+    // pixel(44,44) <= start node (black)
+    // pixel(44,45) <= top node (white)
+    // pixel(43,44) <= left node (white)
+    // pixel(45,44) <= right node (black)
+    // pixel(44,43) <= down node (whites)
+    maze.getAdjacentMazeNodes(maze.mazeArray(44)(44))
+    println("")
+    // corner pixel so top and left should be null. bottom and right should be black
+    maze.getAdjacentMazeNodes(maze.mazeArray(0)(0))
+    println("")
+    maze.getAdjacentMazeNodes(maze.mazeArray(1)(1))
+    
 
     // TODO: Store path pixels from solution
     // val pathNodes = bfs.solveMaze(maze)
