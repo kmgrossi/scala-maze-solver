@@ -2,9 +2,11 @@ import java.io.File
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
 
-/*
-* Class for Node representation of maze images
-* */
+/** Class for Node representation of maze images
+ * (class description goes here)
+ * @constructor
+ * @param bufferedImage
+ */
 class Maze (bufferedImage: BufferedImage) {
 
     val mazeHeight = bufferedImage.getHeight
@@ -29,16 +31,16 @@ class Maze (bufferedImage: BufferedImage) {
     //Goes through the BufferedImage and then populates the 2D array of strings to be representative of the working layer.
     for (i <- 0 until mazeHeight) {
         for (j <- 0 until mazeWidth) {
-            if (bufferedImage.getRGB(i, j) == black) {      // If pixel is a wall
+            if (bufferedImage.getRGB(i, j) == black) {        // If pixel is a wall
                 mazeArray(i)(j).nodeState = NodeState.CLOSED
             }
-            else if(bufferedImage.getRGB(i, j) == white){   // If pixel is a path
+            else if (bufferedImage.getRGB(i, j) == white) {   // If pixel is a path
                 mazeArray(i)(j).nodeState = NodeState.OPEN
             }
-            else if(bufferedImage.getRGB(i, j) == blue){    // If pixel is the end
+            else if (bufferedImage.getRGB(i, j) == blue) {    // If pixel is the end
                 mazeArray(i)(j).nodeState = NodeState.VISITED
             }
-            else if(bufferedImage.getRGB(i, j) == red){     // If pixel is the start
+            else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the start
                 mazeArray(i)(j).nodeState = NodeState.VISITED
             }
             else {
@@ -48,8 +50,8 @@ class Maze (bufferedImage: BufferedImage) {
     }
 
     // Prints out maze representation as NodeStates
-    for (i <- 0 until mazeHeight){
-        for(j <- 0 until mazeWidth){
+    for (i <- 0 until mazeHeight) {
+        for (j <- 0 until mazeWidth) {
             print(mazeArray(j)(i))
         }
         println()
