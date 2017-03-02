@@ -29,10 +29,16 @@ object Driver {
     // Following code tests that the picture's dimensions is being read accurately
     //printf("Photo size is %d x %d\n", photo1.getWidth, photo1.getHeight)
 
+
     // TODO: Store path pixels from solution
-    // TODO: Draw path showing solved path
+    // val pathNodes = bfs.solveMaze(maze)
+
+    // TODO: Draw path showing solved path using pathNodes
+    val canvas = new BufferedImage(maze.mazeWidth, maze.mazeHeight, BufferedImage.TYPE_INT_RGB)
+    // ^This might be more easily done just by copying the original maze and drawing on top of it.
+
     // Write image to a file
-    //javax.imageio.ImageIO.write(new BufferedImage(...),"png", new java.io.File("fileOutput"))
+    //javax.imageio.ImageIO.write(canvas,"png", new java.io.File("fileOutput"))
 
   } // end main method
 

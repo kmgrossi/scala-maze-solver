@@ -1,4 +1,4 @@
-import NodeState.NodeState
+import NodeState.NodeState  // imports Enumeration
 
 /** Class defining Maze Nodes
  * Class for containing information about each pixel in the maze image
@@ -7,11 +7,11 @@ import NodeState.NodeState
  * @param rowPosition : the node's pixel row position
  * @param colPosition : the node's pixel column position
  */
-class MazeNode(var state: NodeState, var rowPosition: Int, var colPosition: Int) { // class header and constructor
+class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int) { // class header and constructor
 
-  var nodeState = state
-  var rowPos = rowPosition
-  var colPos = colPosition
+  //var nodeState = state
+  //var rowPos = rowPosition
+  //var colPos = colPosition
 
   def canEqual(a: Any) = a.isInstanceOf[MazeNode]   
   override def equals(that: Any): Boolean = 
@@ -25,13 +25,13 @@ class MazeNode(var state: NodeState, var rowPosition: Int, var colPosition: Int)
     super.hashCode + ourHash
   }
 
-  override def toString: String = "" + nodeState + ""
+  override def toString: String = "" + state + ""
 
 } // end class MazeNode
 
 
 /** Enumeration for Node States
- * @tparam OPEN    : pixel/node not yet traversed
+ * @tparam OPEN    : pixel/node valid for traversal
  * @tparam CLOSED  : pixel/node cannot be traversed
  * @tparam VISITED : pixel/node already been traversed
  */

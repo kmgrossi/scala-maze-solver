@@ -33,16 +33,16 @@ class Maze (bufferedImage: BufferedImage) {
   for (i <- 0 until mazeHeight) {
     for (j <- 0 until mazeWidth) {
       if (bufferedImage.getRGB(i, j) == black) {        // If pixel is a wall
-        mazeArray(i)(j).nodeState = NodeState.CLOSED
+        mazeArray(i)(j).state = NodeState.CLOSED
       }
       else if (bufferedImage.getRGB(i, j) == white) {   // If pixel is a path
-        mazeArray(i)(j).nodeState = NodeState.OPEN
+        mazeArray(i)(j).state = NodeState.OPEN
       }
       else if (bufferedImage.getRGB(i, j) == blue) {    // If pixel is the start
-        mazeArray(i)(j).nodeState = NodeState.VISITED
+        mazeArray(i)(j).state = NodeState.VISITED
       }
       else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the end
-        mazeArray(i)(j).nodeState = NodeState.VISITED
+        mazeArray(i)(j).state = NodeState.VISITED
       }
       else {
         throw new NoSuchElementException
