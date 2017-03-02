@@ -7,7 +7,7 @@ import java.awt.{Graphics2D, Color}
  * Driver that runs the main application of the program in conjunction with all
  * other classes.
  */
-object Driver extends App {
+object Driver {
 
   override def main(args: Array[String]): Unit = { // FIXME: overriding the main method is deprecated
      
