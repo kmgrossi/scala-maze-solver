@@ -9,8 +9,8 @@ import java.awt.{Graphics2D, Color}
  */
 object Driver {
 
-  def main(args: Array[String]): Unit = { // FIXME: overriding the main method is deprecated
-     
+  def main(args: Array[String]): Unit = { 
+
     if (args.length != 2){
       throw new IllegalArgumentException("Must only contain two arguments.")
     }
@@ -38,14 +38,8 @@ object Driver {
         newImage.setRGB(node.rowPos, node.colPos, pathColor)
     }
 
-
-
-    // TODO: Draw path showing solved path using pathNodes
-    //val canvas = new BufferedImage(maze.mazeWidth, maze.mazeHeight, BufferedImage.TYPE_INT_RGB)
-    // ^This might be more easily done just by copying the original maze and drawing on top of it.
-
-    // Write image to a file
-    javax.imageio.ImageIO.write(newImage,"png", new java.io.File("fileOutput.png"))
+    // Write solved maze image to a file
+    javax.imageio.ImageIO.write(newImage,"png", new java.io.File(fileOutput))
 
   } // end main method
 

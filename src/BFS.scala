@@ -1,7 +1,10 @@
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
-class BFS (maze: Maze, start: MazeNode){
+/**
+ *
+ */
+class BFS (maze: Maze, start: MazeNode) {
 
   def bfssolver(maze: Maze, start: MazeNode): mutable.MutableList[MazeNode] = {
 
@@ -15,14 +18,14 @@ class BFS (maze: Maze, start: MazeNode){
     while(queue.nonEmpty){
       val currentNode = queue.dequeue()
 
-      if(currentNode.rowPos == 266 && currentNode.colPos == 397){
+      if(currentNode.rowPos == 266 && currentNode.colPos == 397) {
         val path = mazePath(maze: Maze, currentNode: MazeNode)
         return path
       }
 
       val adjList = maze.getAdjacentMazeNodes(currentNode)
 
-      for (node <- adjList){
+      for (node <- adjList) {
         val adjacentNode = node
         if (adjacentNode.state == NodeState.OPEN){
           adjacentNode.state = NodeState.VISITED
@@ -41,7 +44,7 @@ class BFS (maze: Maze, start: MazeNode){
     var currentNode = end
     val path = mutable.MutableList[MazeNode]()
 
-    while(currentNode != null){
+    while(currentNode != null) {
       path += currentNode
       currentNode = currentNode.prevNode
     }
