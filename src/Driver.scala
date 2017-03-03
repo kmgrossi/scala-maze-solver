@@ -25,16 +25,18 @@ object Driver {
     val maze = new Maze(originalMaze)
 
     //MAZE 1
-    val startingPixel = new MazeNode(NodeState.OPEN, 43, 396, null)   // Our starting pixel located in the blue region
-    val endingPixel = new MazeNode(NodeState.OPEN, 266, 397, null)    // End pixel
+//    val startingPixel = new MazeNode(NodeState.OPEN, 43, 396, null)   // Our starting pixel located in the blue region
+//    val endingPixel = new MazeNode(NodeState.OPEN, 266, 397, null)    // End pixel
 
     //MAZE 2
-   // val startingPixel = new MazeNode(NodeState.OPEN, 2, 7, null)   // Our starting pixel located in the blue region
-   // val endingPixel = new MazeNode(NodeState.OPEN, 1795, 1790, null)    // End pixel
+    val startingPixel = new MazeNode(NodeState.OPEN, 2, 7, null)   // Our starting pixel located in the blue region
+    val endingPixel = new MazeNode(NodeState.OPEN, 1795, 1790, null)    // End pixel
 
+    // Breadth-first search
     val BFS = new BFS(maze, startingPixel, endingPixel)
     val pathNodes = BFS.bfssolver(maze, startingPixel)
 
+    // Depth-first search
 //    val DFS = new DFS(maze, startingPixel, endingPixel)
 //    val pathNodes = DFS.dfssolver(maze, startingPixel)
 
