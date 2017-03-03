@@ -6,6 +6,7 @@ import NodeState.NodeState  // imports Enumeration
  * @param state       : the node's state (Open, Closed, or Visited)
  * @param rowPosition : the node's pixel row position
  * @param colPosition : the node's pixel column position
+ * @param prevNode    : the node's previous solution node
  */
 class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int, var prevNode: MazeNode) { // class header and constructor
 

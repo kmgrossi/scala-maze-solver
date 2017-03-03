@@ -23,13 +23,13 @@ class Maze(bufferedImage: BufferedImage) {
     }
   }
 
-  //Decimal representations of Colors used in the maze image
+  // Decimal representations of Colors used in the maze image
   val white = -1
   val black = -16777216
   val blue = -16776961
   val red = -65536
 
-  //Goes through the BufferedImage and then populates the 2D array of strings to be representative of the working layer.
+  // Goes through the BufferedImage and then populates the 2D array of strings to be representative of the working layer.
   for (i <- 0 until mazeHeight) {
     for (j <- 0 until mazeWidth) {
       if (bufferedImage.getRGB(i, j) == black) {        // If pixel is a wall
@@ -63,7 +63,7 @@ class Maze(bufferedImage: BufferedImage) {
     adj // Returned without need for return keyword
   }
 
-  // Prints out maze representation as NodeStates
+  // Prints out maze representation as NodeStates for DEBUG
   def printMaze: Unit = {
     for (i <- 0 until mazeHeight) {
       for (j <- 0 until mazeWidth) {

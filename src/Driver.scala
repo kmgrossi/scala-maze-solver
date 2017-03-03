@@ -30,15 +30,24 @@ object Driver {
     val pathNodes = BFS.bfssolver(maze, startingPixel)
     val newImage = originalMaze
 
+
+    val startingPixel = new MazeNode(NodeState.OPEN, 43, 396, null)   // Our starting pixel located in the blue region
+    val BFS = new BFS(maze, startingPixel)
+    val pathNodes = BFS.bfssolver(maze, startingPixel)  // List of MazeNodes containing the solution path
+    val newImage = originalMaze   // A copy of the original maze image to draw our solution on
+
+
+    // Used to draw a green path representing the solution
     val green = new Color(0,255,0)
     val pathColor = green.getRGB
+
 
     for (node <- pathNodes){
       if(node != null)
         newImage.setRGB(node.rowPos, node.colPos, pathColor)
     }
 
-    // Write solved maze image to a file
+    // Write the solved maze image to a file
     javax.imageio.ImageIO.write(newImage,"png", new java.io.File(fileOutput))
 
   } // end main method
