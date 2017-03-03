@@ -30,7 +30,7 @@ object Driver {
     val BFS = new BFS(maze, startingPixel, endingPixel)
     val pathNodes = BFS.bfssolver(maze, startingPixel)
 
-//    val DFS = new DFS(maze, startingPixel, e  ndingPixel)
+//    val DFS = new DFS(maze, startingPixel, endingPixel)
 //    val pathNodes = DFS.dfssolver(maze, startingPixel)
 
     val newImage = originalMaze   // A copy of the original maze image to draw our solution on
