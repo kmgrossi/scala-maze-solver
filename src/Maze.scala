@@ -55,13 +55,13 @@ class Maze(bufferedImage: BufferedImage) {
     var col = node.colPos
     var adj = new Array[MazeNode](4)
 
-    if (mazeArray(row)(col+1) != null) adj(0) = mazeArray(row)(col+1) //up
-    if (mazeArray(row-1)(col) != null) adj(1) = mazeArray(row-1)(col) //left
-    if (mazeArray(row+1)(col) != null) adj(2) = mazeArray(row+1)(col) //right
-    if (mazeArray(row)(col-1) != null) adj(3) = mazeArray(row)(col-1) //down
+    adj(0) = if (col-1 < 0) null else mazeArray(row)(col-1)
+    adj(1) = if (row-1 < 0) null else mazeArray(row-1)(col)
+    adj(2) = if (row+1 > mazeWidth) null else mazeArray(row+1)(col)
+    adj(3) = if (col+1 > mazeHeight) null else mazeArray(row)(col+1)
 
     for (n <- adj)
-      print(n)
+      print(n) // DEBUG ONLY
 
     adj // Returned without need for return keyword
   }
@@ -70,7 +70,7 @@ class Maze(bufferedImage: BufferedImage) {
   def printMaze: Unit = {
     for (i <- 0 until mazeHeight) {
       for (j <- 0 until mazeWidth) {
-        print(mazeArray(j)(i))
+        print(mazeArray(j)(i) + i.toString + j.toString)
       }
       println()
     }    
