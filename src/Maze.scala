@@ -39,7 +39,7 @@ class Maze(bufferedImage: BufferedImage) {
         mazeArray(i)(j).state = NodeState.OPEN
       }
       else if (bufferedImage.getRGB(i, j) == blue) {    // If pixel is the start
-        mazeArray(i)(j).state = NodeState.VISITED
+        mazeArray(i)(j).state = NodeState.OPEN
       }
       else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the end
         mazeArray(i)(j).state = NodeState.END

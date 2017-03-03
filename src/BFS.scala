@@ -15,7 +15,7 @@ class BFS (maze: Maze, start: MazeNode){
     while(queue.nonEmpty){
       val currentNode = queue.dequeue()
 
-      if(currentNode.state == NodeState.END){
+      if(currentNode.rowPos == 266 && currentNode.colPos == 397){
         val path = mazePath(maze: Maze, currentNode: MazeNode)
         return path
       }
@@ -24,7 +24,7 @@ class BFS (maze: Maze, start: MazeNode){
 
       for (node <- adjList){
         val adjacentNode = node
-        if (adjacentNode.state == NodeState.OPEN && adjacentNode != null){
+        if (adjacentNode.state == NodeState.OPEN){
           adjacentNode.state = NodeState.VISITED
           queue.enqueue(adjacentNode)
           adjacentNode.prevNode = currentNode
