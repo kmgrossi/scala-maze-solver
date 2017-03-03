@@ -1,6 +1,5 @@
 import java.io.File                     // File I/O
 import javax.imageio.ImageIO            // Load image from file
-import java.awt.image.BufferedImage     // Stores image data
 import java.awt.{Graphics2D, Color}
 
 /** Class/Object containing main method
@@ -26,7 +25,8 @@ object Driver {
     val maze = new Maze(originalMaze)
 
     val startingPixel = new MazeNode(NodeState.OPEN, 43, 396, null)
-    val BFS = new BFS(maze, startingPixel)
+    val endingPixel = new MazeNode(NodeState.OPEN, 266, 397, null)
+    val BFS = new BFS(maze, startingPixel, endingPixel)
     val pathNodes = BFS.bfssolver(maze, startingPixel)
     val newImage = originalMaze
 
