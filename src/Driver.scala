@@ -24,8 +24,13 @@ object Driver {
     // Constant variable object of class Maze
     val maze = new Maze(originalMaze)
 
+    //MAZE 1
     val startingPixel = new MazeNode(NodeState.OPEN, 43, 396, null)   // Our starting pixel located in the blue region
     val endingPixel = new MazeNode(NodeState.OPEN, 266, 397, null)    // End pixel
+
+    //MAZE 2
+   // val startingPixel = new MazeNode(NodeState.OPEN, 2, 7, null)   // Our starting pixel located in the blue region
+   // val endingPixel = new MazeNode(NodeState.OPEN, 1795, 1790, null)    // End pixel
 
     val BFS = new BFS(maze, startingPixel, endingPixel)
     val pathNodes = BFS.bfssolver(maze, startingPixel)
@@ -36,8 +41,8 @@ object Driver {
     val newImage = originalMaze   // A copy of the original maze image to draw our solution on
 
     // Used to draw a green path representing the solution
-    val green = new Color(0,255,0)
-    val pathColor = green.getRGB
+    val pink = new Color(255,20,147)
+    val pathColor = pink.getRGB
 
     for (node <- pathNodes){
       if(node != null)
