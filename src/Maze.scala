@@ -19,7 +19,7 @@ class Maze(bufferedImage: BufferedImage) {
   for (i <- 0 until mazeHeight) {
     for(j <- 0 until mazeWidth) {
       // Initializes each location with an open Node
-      mazeArray(i)(j) = new MazeNode(NodeState.OPEN, i, j)
+      mazeArray(i)(j) = new MazeNode(NodeState.OPEN, i, j, null)
     }
   }
 

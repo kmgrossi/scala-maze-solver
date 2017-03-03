@@ -1,7 +1,9 @@
+import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 
 class BFS (maze: Maze, start: MazeNode){
 
-  def bfssolver(maze: Maze, start: MazeNode): scala.collection.mutable.ArrayBuffer[MazeNode] = {
+  def bfssolver(maze: Maze, start: MazeNode): mutable.MutableList[MazeNode] = {
 
     val queue = new scala.collection.mutable.Queue[MazeNode]
     val startingNode = start
@@ -11,7 +13,7 @@ class BFS (maze: Maze, start: MazeNode){
     queue.enqueue(startingNode)
 
     while(queue.nonEmpty){
-      var currentNode = queue.dequeue()
+      val currentNode = queue.dequeue()
 
       if(currentNode.state == NodeState.END){
         val path = mazePath(maze: Maze, currentNode: MazeNode)
@@ -21,7 +23,7 @@ class BFS (maze: Maze, start: MazeNode){
       val adjList = maze.getAdjacentMazeNodes(currentNode)
 
       for (node <- adjList){
-        var adjacentNode = node
+        val adjacentNode = node
         if (adjacentNode.state == NodeState.OPEN && adjacentNode != null){
           adjacentNode.state = NodeState.VISITED
           queue.enqueue(adjacentNode)
@@ -30,16 +32,17 @@ class BFS (maze: Maze, start: MazeNode){
       }
       currentNode.state = NodeState.VISITED
     }
+    println("No sol")
     null //return null if no solution is found
   } //end solver
 
-  def mazePath (maze: Maze, end: MazeNode): scala.collection.mutable.ArrayBuffer[MazeNode] = {
+  def mazePath (maze: Maze, end: MazeNode): mutable.MutableList[MazeNode] = {
 
     var currentNode = end
-    val path = new scala.collection.mutable.ArrayBuffer[MazeNode]
+    val path = mutable.MutableList[MazeNode]()
 
     while(currentNode != null){
-      path.append(currentNode)
+      path += currentNode
       currentNode = currentNode.prevNode
     }
 

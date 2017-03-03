@@ -44,15 +44,16 @@ object Driver {
     
 
     // TODO: Store path pixels from solution
-    val startingPixel = new MazeNode(NodeState.VISITED, 43, 396)
+    val startingPixel = new MazeNode(NodeState.VISITED, 43, 396, null)
     val BFS = new BFS(maze, startingPixel)
     val pathNodes = BFS.bfssolver(maze, startingPixel)
     val newImage = originalMaze
 
       //Causes Null Pointer Exception
-//    for (node <- pathNodes){
-//      newImage.setRGB(node.rowPos, node.colPos, -65280)
-//    }
+    for (node <- pathNodes){
+      if(node != null)
+        newImage.setRGB(node.rowPos, node.colPos, -65280)
+    }
 
     newImage.setRGB(250, 250, -65280)
 

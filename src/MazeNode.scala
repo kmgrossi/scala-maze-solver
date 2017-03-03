@@ -7,9 +7,7 @@ import NodeState.NodeState  // imports Enumeration
  * @param rowPosition : the node's pixel row position
  * @param colPosition : the node's pixel column position
  */
-class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int) { // class header and constructor
-
-  var prevNode = MazeNode.this
+class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int, var prevNode: MazeNode) { // class header and constructor
 
   def canEqual(a: Any) = a.isInstanceOf[MazeNode]   
   override def equals(that: Any): Boolean = 
