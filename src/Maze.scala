@@ -55,10 +55,11 @@ class Maze(bufferedImage: BufferedImage) {
     val col = node.colPos
     val adj = new Array[MazeNode](4)
 
-    adj(0) = if (col-1 < 0) null else mazeArray(row)(col-1)
-    adj(1) = if (row-1 < 0) null else mazeArray(row-1)(col)
-    adj(2) = if (row+1 > mazeWidth) null else mazeArray(row+1)(col)
-    adj(3) = if (col+1 > mazeHeight) null else mazeArray(row)(col+1)
+    // Locates adjacent nodes without accessing out of bounds
+    adj(0) = if (col-1 < 0) null else mazeArray(row)(col-1)           // Up
+    adj(1) = if (row-1 < 0) null else mazeArray(row-1)(col)           // Left
+    adj(2) = if (row+1 > mazeWidth) null else mazeArray(row+1)(col)   // Right
+    adj(3) = if (col+1 > mazeHeight) null else mazeArray(row)(col+1)  // Down
 
     adj // Returned without need for return keyword
   }
