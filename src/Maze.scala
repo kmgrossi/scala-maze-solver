@@ -70,7 +70,7 @@ class Maze(bufferedImage: BufferedImage) {
   def printMaze: Unit = {
     for (i <- 0 until mazeHeight) {
       for (j <- 0 until mazeWidth) {
-        print(mazeArray(j)(i) + i.toString + j.toString)
+        print(mazeArray(j)(i))
       }
       println()
     }    
