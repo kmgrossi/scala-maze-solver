@@ -35,23 +35,33 @@ object Driver {
     // pixel(43,44) <= left node (white)
     // pixel(45,44) <= right node (black)
     // pixel(44,43) <= down node (whites)
-    maze.getAdjacentMazeNodes(maze.mazeArray(44)(44))
-    println("")
+    //maze.getAdjacentMazeNodes(maze.mazeArray(44)(44))
+    //println("")
     // corner pixel so top and left should be null. bottom and right should be black
     //maze.getAdjacentMazeNodes(maze.mazeArray(0)(0))
     //println("")
-    maze.getAdjacentMazeNodes(maze.mazeArray(1)(1))
+    //maze.getAdjacentMazeNodes(maze.mazeArray(1)(1))
     
 
     // TODO: Store path pixels from solution
-    // val pathNodes = bfs.solveMaze(maze)
+    val startingPixel = new MazeNode(NodeState.VISITED, 43, 396)
+    val BFS = new BFS(maze, startingPixel)
+    val pathNodes = BFS.bfssolver(maze, startingPixel)
+    val newImage = originalMaze
+
+      //Causes Null Pointer Exception
+//    for (node <- pathNodes){
+//      newImage.setRGB(node.rowPos, node.colPos, -65280)
+//    }
+
+    newImage.setRGB(250, 250, -65280)
 
     // TODO: Draw path showing solved path using pathNodes
-    val canvas = new BufferedImage(maze.mazeWidth, maze.mazeHeight, BufferedImage.TYPE_INT_RGB)
+    //val canvas = new BufferedImage(maze.mazeWidth, maze.mazeHeight, BufferedImage.TYPE_INT_RGB)
     // ^This might be more easily done just by copying the original maze and drawing on top of it.
 
     // Write image to a file
-    //javax.imageio.ImageIO.write(canvas,"png", new java.io.File("fileOutput"))
+    javax.imageio.ImageIO.write(newImage,"png", new java.io.File("fileOutput.png"))
 
   } // end main method
 

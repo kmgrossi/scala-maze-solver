@@ -51,17 +51,17 @@ class Maze(bufferedImage: BufferedImage) {
   }
 
   def getAdjacentMazeNodes(node: MazeNode): Array[MazeNode] = {
-    var row = node.rowPos
-    var col = node.colPos
-    var adj = new Array[MazeNode](4)
+    val row = node.rowPos
+    val col = node.colPos
+    val adj = new Array[MazeNode](4)
 
     if (mazeArray(row)(col+1) != null) adj(0) = mazeArray(row)(col+1) //up
     if (mazeArray(row-1)(col) != null) adj(1) = mazeArray(row-1)(col) //left
     if (mazeArray(row+1)(col) != null) adj(2) = mazeArray(row+1)(col) //right
     if (mazeArray(row)(col-1) != null) adj(3) = mazeArray(row)(col-1) //down
 
-    for (n <- adj)
-      print(n)
+//    for (n <- adj)
+//      print(n)
 
     adj // Returned without need for return keyword
   }

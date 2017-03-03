@@ -18,12 +18,19 @@ class BFS (maze: Maze, start: MazeNode){
         return path
       }
 
-      for ()
+      val adjList = maze.getAdjacentMazeNodes(currentNode)
 
-
+      for (node <- adjList){
+        var adjacentNode = node
+        if (adjacentNode.state == NodeState.OPEN && adjacentNode != null){
+          adjacentNode.state = NodeState.VISITED
+          queue.enqueue(adjacentNode)
+          adjacentNode.prevNode = currentNode
+        }
+      }
+      currentNode.state = NodeState.VISITED
     }
-
-    maze
+    null //return null if no solution is found
   } //end solver
 
   def mazePath (maze: Maze, end: MazeNode): scala.collection.mutable.ArrayBuffer[MazeNode] = {
