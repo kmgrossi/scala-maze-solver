@@ -9,6 +9,8 @@ import NodeState.NodeState  // imports Enumeration
  */
 class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int) { // class header and constructor
 
+  var prevNode = null
+
   def canEqual(a: Any) = a.isInstanceOf[MazeNode]   
   override def equals(that: Any): Boolean = 
     that match {
@@ -30,10 +32,12 @@ class MazeNode(var state: NodeState, var rowPos: Int, var colPos: Int) { // clas
  * @tparam OPEN    : pixel/node valid for traversal
  * @tparam CLOSED  : pixel/node cannot be traversed
  * @tparam VISITED : pixel/node already been traversed
+ * @tparam VISITED : pixel/node already been traversed
  */
 object NodeState extends Enumeration {
   type NodeState = Value
   val OPEN = Value("O")
   val CLOSED = Value(".")
   val VISITED = Value("V")
+  val END = Value("E")
 } // end NodeState

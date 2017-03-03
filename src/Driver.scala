@@ -38,8 +38,8 @@ object Driver {
     maze.getAdjacentMazeNodes(maze.mazeArray(44)(44))
     println("")
     // corner pixel so top and left should be null. bottom and right should be black
-    maze.getAdjacentMazeNodes(maze.mazeArray(0)(0))
-    println("")
+    //maze.getAdjacentMazeNodes(maze.mazeArray(0)(0))
+    //println("")
     maze.getAdjacentMazeNodes(maze.mazeArray(1)(1))
     
 

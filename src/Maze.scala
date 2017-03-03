@@ -42,7 +42,7 @@ class Maze(bufferedImage: BufferedImage) {
         mazeArray(i)(j).state = NodeState.VISITED
       }
       else if (bufferedImage.getRGB(i, j) == red) {     // If pixel is the end
-        mazeArray(i)(j).state = NodeState.VISITED
+        mazeArray(i)(j).state = NodeState.END
       }
       else {
         throw new NoSuchElementException
